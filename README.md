@@ -8,4 +8,5 @@ Run ios( using macOS):
 
 Run android:
 - yarn install
-- yarn android# demo-app
+- yarn android::clean
+- yarn android

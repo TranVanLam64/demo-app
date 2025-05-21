@@ -1,10 +1,12 @@
 import React from 'react';
 import {
+  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import {CardSection, Space, StatusContainer} from '../../components';
 import {
@@ -20,15 +22,19 @@ import {navigationName} from '../../navigation/navigationName';
 const Dashboard = () => {
   return (
     <SafeAreaView style={styles.safeView}>
-      <TouchableOpacity
-        style={styles.buttonSetting}
-        onPress={() => navigate(navigationName.settingScreen)}>
-        <SettingIcon />
-      </TouchableOpacity>
-      <Space height={12} />
-      <ScrollView style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={{paddingBottom: 60}}>
         <Space height={12} />
-        <Text style={styles.title}>Admin Dashboard</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>Admin Dashboard</Text>
+          <TouchableOpacity
+            style={styles.buttonSetting}
+            onPress={() => navigate(navigationName.settingScreen)}>
+            <SettingIcon />
+          </TouchableOpacity>
+        </View>
+
         <Space height={16} />
         <StatusContainer data={statusData} />
         <Space height={24} />
@@ -45,9 +51,14 @@ const Dashboard = () => {
 const styles = StyleSheet.create({
   safeView: {
     flex: 1,
+    paddingTop: Platform.OS === 'android' ? 56 : 0,
   },
   container: {
     paddingHorizontal: 24,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 18,

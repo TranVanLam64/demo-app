@@ -1,5 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Avatar, Input, Space, TagContainer, TextArea} from '../../components';
 import {tagData} from '../../utils/constants';
 import {BackIcon} from '../../assets/images/icons';
@@ -67,6 +73,7 @@ const styles = StyleSheet.create({
   safeView: {
     flex: 1,
     alignItems: 'center',
+    paddingTop: Platform.OS === 'android' ? 56 : 0,
   },
   container: {
     paddingHorizontal: 24,

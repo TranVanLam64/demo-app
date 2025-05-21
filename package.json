@@ -9,6 +9,7 @@
     "start": "react-native start",
     "test": "jest",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "android::clean": "cd android && ./gradlew clean && cd ..",
     "ios::xcode": "open ios/$(jq -r .name package.json).xcworkspace",
     "pod": "cd ios && pod install --repo-update && cd ..",
     "android::generator": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle"
